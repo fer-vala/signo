@@ -41,6 +41,7 @@ RUN apt-get update && apt-get install -y \
     "php${PHP_VERSION}-bcmath" \
     "php${PHP_VERSION}-pdo" \
     "php${PHP_VERSION}-pdo-pgsql" \
+    "php${PHP_VERSION}-pdo-sqlite" \
     libapache2-mod-php"${PHP_VERSION}" \
     && apt-get clean
 

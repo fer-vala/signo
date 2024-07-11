@@ -39,7 +39,7 @@ return new class extends Migration
         foreach ($this->permissions as $permission) {
             Permission::create(['name' => $permission]);
         }
-        $role = Role::create(['name' => 'Administrador']);
+        $role = Role::create(['name' => 'Administrador', 'guard_name' => 'web']);
         $permissions = Permission::pluck('id', 'id')->all();
         $role->syncPermissions($permissions);
         $user->assignRole([$role->id]);

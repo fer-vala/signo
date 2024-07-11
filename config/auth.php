@@ -66,7 +66,7 @@ return [
         ],
         'ilc_auth_provider' => [
             'driver' => 'ilc_auth_provider_driver',
-            'model' => env('ILC_AUTH_MODEL', \ILC\AdminUsuarios\Models\ILCUser::class),
+            'model' => env('ILC_AUTH_MODEL', ILC\AdminUsuarios\Models\ILCUser::class),
         ]
 
         // 'users' => [
