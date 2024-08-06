@@ -38,8 +38,8 @@ return [
 	'digits_between'        => 'El campo :attribute debe tener entre :min y :max dígitos.',
 	'dimensions'            => 'El campo :attribute no tiene una dimensión válida.',
 	'distinct'              => 'El campo :attribute tiene un valor duplicado.',
-	'email'                 => 'El formato del :attribute es inválido.',
-	'exists'                => 'El campo :attribute tiene un valor no válido.',
+	'email'                 => 'El formato del :attribute no es válido.',
+	'exists'                => 'El campo :attribute no existe.',
 	'file'                  => 'El campo :attribute debe ser un archivo.',
 	'filled'                => 'El campo :attribute es requerido.',
 	'gt'                    => [
@@ -55,7 +55,7 @@ return [
 		'array'   => 'El campo :attribute puede tener :value elementos o más.',
 	],
 	'image'                 => 'El campo :attribute debe ser una imagen.',
-	'in'                    => 'El campo :attribute seleccionado es inválido.',
+	'in'                    => 'El campo :attribute seleccionado no es válido.',
 	'in_array'              => 'El campo :attribute no existe en :other.',
 	'integer'               => 'El campo :attribute debe ser un entero.',
 	'ip'                    => 'El campo :attribute debe ser una dirección IP válida.',
@@ -89,10 +89,10 @@ return [
 		'array'   => 'El campo :attribute debe tener al menos :min elementos.',
 	],
 	'not_in'                => 'El campo :attribute seleccionado es invalido.',
-	'not_regex'             => 'El formato del campo :attribute es inválido.',
+	'not_regex'             => 'El formato del campo :attribute no es válido.',
 	'numeric'               => 'El campo :attribute debe ser un número.',
 	'present'               => 'El campo :attribute debe estar presente.',
-	'regex'                 => 'El formato del campo :attribute es inválido.',
+	'regex'                 => 'El formato del campo :attribute no es válido.',
 	'required'              => 'El campo :attribute es requerido.',
 	'required_if'           => 'El campo :attribute es requerido cuando el campo :other es :value.',
 	'required_unless'       => 'El campo :attribute es requerido a menos que :other esté presente en :values.',
@@ -112,7 +112,7 @@ return [
 	'timezone'              => 'El campo :attribute debe ser una zona válida.',
 	'unique'                => 'El campo :attribute ya se encuentra registrado.',
 	'uploaded'              => 'El campo :attribute no ha podido ser cargado.',
-	'url'                   => 'El formato de :attribute es inválido.',
+	'url'                   => 'El formato de :attribute no es válido.',
 	'uuid'                  => 'El :attribute debe ser un UUID valido.',
 
     /*
@@ -127,28 +127,65 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'certificados' => [
+            'required' => 'Por favor, suba un archivo de certificado.',
+            'mimes' => 'Solo se permiten archivos con la extensión .cer.',
+        ],
+        'excel' => [
+            'nombre.required' => 'El campo :attribute es requerido.',
+            'nombre.max' => 'El campo :attribute no puede tener más de 255 caracteres.',
+            'primer_apellido.string' => 'El campo :attribute debe ser una cadena de texto.',
+            'primer_apellido.max' => 'El campo :attribute no puede tener mas de :max caracteres.',
+            'segundo_apellido.string' => 'El campo :attribute debe ser un cadena de texto.',
+            'segundo_apellido.max' => 'El campo :attribute no puede tener mas de :max caracteres.',
+            'email.required' => 'El campo :attribute es requerido.',
+            'email.email' => 'El campo :attribute debe ser una dirección de correo electrónico válida.',
+            'email.unique' => 'El campo :attribute ya se encuentra registrado.',
+            'email.max' => 'El campo :attribute no puede tener mas de :max caracteres.',
+            'curp.required' => 'El campo :attribute es requerido.',
+            'curp.min' => 'El campo :attribute debe tener al menos :min caracteres.',
+            'curp.max' => 'El campo :attribute no puede tener mas de :max caracteres.',
+            'curp.unique' => 'El campo :attribute ya se encuentra registrado.',
+            'curp_rule.required' => 'El campo :attribute es requerido.',
+            'curp_rule.CurpRule' => 'El campo :attribute no es válido.',
+            'password.max' => 'El campo :attribute no puede tener mas de :max caracteres.',
+            'roles.required' => 'El campo :attribute es requerido.',
+            'roles.array' => 'El campo :attribute debe ser un arreglo.',
+            'roles.distinct' => 'El campo :attribute tiene un valor duplicado.',
+            'roles.exists' => 'El campo :attribute seleccionado no es válido.',
+            'permisos.array' => 'El campo :attribute debe ser un arreglo.',
+            'permisos.distinct' => 'El campo :attribute tiene un valor duplicado.',
+            'permisos.exists' => 'El campo :attribute seleccionado no es válido.',
+            'serie.required_if' => 'El campo :attribute es requerido cuando :other es :value.',
+            'serie.max' => 'El campo :attribute no puede tener mas de :max caracteres.',
+            'autenticacion.required' => 'El campo :attribute es requerido.',
+            'autenticacion.in' => 'El campo :attribute seleccionado no es válido.',
+            'estado.boolean' => 'El campo :attribute debe ser verdadero o falso.',
+            'enviar_correo.boolean' => 'El campo :attribute debe ser verdadero o falso.',
         ],
     ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Custom Validation Attributes
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines are used to swap our attribute placeholder
-    | with something more reader friendly such as "E-Mail Address" instead
-    | of "email". This simply helps us make our message more expressive.
-    |
-    */
+        /*
+        |--------------------------------------------------------------------------
+        | Custom Validation Attributes
+        |--------------------------------------------------------------------------
+        |
+        | The following language lines are used to swap our attribute placeholder
+        | with something more reader friendly such as "E-Mail Address" instead
+        | of "email". This simply helps us make our message more expressive.
+        |
+        */
 
     'attributes' => [
+        'nombre' => 'nombre',
         'email' => 'correo electrónico',
         'curp' => 'curp',
-        'curp_rule' => 'curp',
+        'curp_rule' => 'curp_rule',
         'password' => 'contraseña',
-        'roles' => 'rol'
+        'roles' => 'rol',
+        'action' => 'tipo de acción masiva',
+        'users.*.id' => 'id de la fila :index',
+        'users.*.role' => 'rol de la fila :index',
+        'users.*.status' => 'estado de la fila :index'
     ],
 
 ];

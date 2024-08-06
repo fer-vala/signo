@@ -7,18 +7,18 @@ return [
     'throttle' => 'Demasiados intentos. Por favor intente de nuevo en :seconds segundos.',
     'custom' => [
         'certificado' => [
-            'required' => 'El certificado es obligatorio.',
+            'required' => 'El :attribute es obligatorio.',
         ],
         'firma' => [
-            'required' => 'La firma es obligatoria.',
+            'required' => 'La :attribute es obligatoria.',
         ],
         'email' => [
-            'required' => 'El email es obligatorio.',
-            'email' => 'El email debe ser una dirección válida.',
+            'required' => 'El :attribute es obligatorio.',
+            'email' => 'El :attribute debe ser una dirección válida.',
         ],
         'password' => [
-            'required' => 'La contraseña es obligatoria.',
-            'min' => 'La contraseña debe tener al menos :min caracteres.',
+            'required' => 'La :attribute es obligatoria.',
+            'min' => 'La :attribute debe tener al menos :min caracteres.',
         ],
     ],
     'attributes' => [
